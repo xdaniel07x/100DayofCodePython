@@ -8,12 +8,18 @@ class Scoreboard(Turtle):
         self.color("white")
         self.penup()
         self.hideturtle()
+        self.score = 0
+        self.score_board()
 
-        self.refresh_score()
-
-    def refresh_score(self):
-
+    def score_board(self):
         self.setposition(x=0, y=275)
         self.clear()
-        self.write("Score: ", True, align="center",
+        self.write(f"Score: {self.score}", True, align="center",
+                   font=("Arial", 20, "normal"))
+
+    def refresh_score(self):
+        self.score += 1
+        self.setposition(x=0, y=275)
+        self.clear()
+        self.write(f"Score: {self.score}", True, align="center",
                    font=("Arial", 20, "normal"))
