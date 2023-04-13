@@ -1,4 +1,5 @@
 import pandas
+import random
 
 # numbers = [1, 2, 3]
 # new_list = [n + 1 for n in numbers]
@@ -43,3 +44,15 @@ student_data_frame = pandas.DataFrame(student_dict)
 for (index, row) in student_data_frame.iterrows():
     if row.student == "Angela":
         print(row.score)
+# Dictionary Comprehension
+
+# new_dict = {new_key:new_value for (key,value) in dict.items() if test}
+
+names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
+
+student_scores = {student: random.randint(1, 100) for student in names}
+print(student_scores)
+
+passed_students = {student: value for (
+    student, value) in student_scores.items() if value >= 60}
+print(passed_students)
